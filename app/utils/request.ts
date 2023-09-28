@@ -14,9 +14,6 @@ export async function getData() {
   //   next: { revalidate: 10 },
   // });
 
-  {
-    cache: 'force-cache';
-  }
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
