@@ -2,7 +2,7 @@
 
 import { getData } from '../utils/request';
 
-const ClientComponent = async () => {
+const ClientComponent = () => {
   return <div>Client Component</div>;
 };
 

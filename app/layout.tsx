@@ -3,6 +3,16 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Header from './components/header';
 import { getData } from './utils/request';
+import { useEffect } from 'react';
+import { getAxiosData } from './utils/axios-request';
+
+// export const dynamic = 'auto'
+// export const dynamicParams = true
+// export const revalidate = false
+// export const fetchCache = 'force-cache';
+// export const runtime = 'nodejs'
+// export const preferredRegion = 'auto'
+// export const maxDuration = 5
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +26,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const data = await getData();
+  // const data = await getData();
+  const data = await getAxiosData();
   console.log('**** data from layout', data.id);
 
   return (
@@ -24,7 +35,6 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Header />
         <main className='flex flex-col items-center justify-between p-24'>
-          {/* <pre>{data && JSON.stringify(data[0], null, 2)}</pre> */}
           {children}
         </main>
       </body>
